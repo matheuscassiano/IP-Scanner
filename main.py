@@ -6,9 +6,9 @@ import geoip2.database
 cdb = geoip2.database.Reader('./GeoLite2-City.mmdb')
 asndb=  geoip2.database.Reader('./GeoLite2-ASN.mmdb')
 
-def get_ip(x, y):
-	x = socket.gethostbyname(y)
-	print('\n\033[0;34mEndereço IP: \033[1;34m{}\033[0;34m'.format(x))
+def get_ip(site):
+	site = socket.gethostbyname(site)
+	print('\n\033[0;34mEndereço IP: \033[1;34m{}\033[0;34m'.format(site))
 
 def menu():
 	os.system('clear')
@@ -19,7 +19,7 @@ def menu():
 	print("\033[1;31m    88    88~~~   \033[1;34m     `Y8b. 8b      88~~~88 88 V8o88 88 V8o88 88~~~~~ 88`8b   ")
 	print("\033[1;31m   .88.   88      \033[1;34m   db   8D Y8b  d8 88   88 88  V888 88  V888 88.     88 `88. ")
 	print("\033[1;31m Y888888P 88      \033[1;34m   `8888Y'  `Y88P' YP   YP VP   V8P VP   V8P Y88888P 88   YD \033[0;0m")
-                                                 
+    # Link: http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Matheus%20Cassiano                                             
 	
 	print ('\033[1;37m\n [01] \033[0;34m= Obter IP de Site')
 	print ('\033[1;37m [02] \033[0;34m= Localizar IP')
@@ -31,19 +31,19 @@ while True:
 		opcao = menu()
 		if opcao ==1:
 			dom = str(input('Entre com o dominio: \033[1;34m')).strip().lower()
-			get_ip(dom, dom)
+			get_ip(dom)
 	
 		elif opcao == 2:
-			z = str(input('Digite o seu IP: \033[1;34m'))
-			rasndb = asndb.asn(z)
-			rcdb = cdb.city(z)
+			ip = str(input('Digite o seu IP: \033[1;34m'))
+			rasndb = asndb.asn(ip)
+			rcdb = cdb.city(ip)
 			print('\033[1;34mPaís: \033[0;36m{} - {}\033[0;0m'.format(rcdb.country.name, rcdb.country.iso_code))
 			print('\033[1;34mEstado: \033[0;36m{} - {}\033[0;0m'.format(rcdb.subdivisions.most_specific.name, rcdb.subdivisions.most_specific.iso_code))
 			print('\033[1;34mCidade: \033[0;36m{}\033[0;0m'.format(rcdb.city.name))
 			print('\033[1;34mCod-Postal: \033[0;36m{}\033[0;0m'.format(rcdb.postal.code))
 			print('\033[1;34mLatitude: \033[0;36m{}\033[0;0m'.format(rcdb.location.latitude))
 			print('\033[1;34mLongitude: \033[0;36m{}\033[0;0m'.format(rcdb.location.longitude))
-			cdb.close()
+			# cdb.close() Com esta linha sempre que o programa re-inicia o loop fica impossivel localizar outros IPs
 			print('\033[1;34mProvedor de Internet: \033[0;36m{}'.format(rasndb.autonomous_system_organization))
 			print('{}\033[0;34m'.format(rasndb.autonomous_system_number))
 
