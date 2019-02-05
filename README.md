@@ -1,5 +1,5 @@
 # IP-Scanner
-Um pequeno programa para saber o IP de diversos sites, alem de localizar e escanear as portas da maioria dos IPs
+Um pequeno programa para encontrar IPs ligados a sites, alem de localiza-los e escanear as suas portas. Programa para fins educacionais.
 
 ## Pré-requisitos
 [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
@@ -12,6 +12,7 @@ sudo pip3 install geoip2
 ```
 ou você pode escrver a seguinte linha no terminal após clonar o repositorio
 ```
+cd IP-Scanner
 python3 install.py
 ```
 ## Instalando
