@@ -21,15 +21,15 @@ def menu():
 	print('				  			      MATHEUS CASSIANO\033[0;0m')
     # Link: http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Matheus%20Cassiano                                             
 	
-	print ('\033[1;37m\n [01] \033[0;34m= Obter IP de Site')
-	print ('\033[1;37m [02] \033[0;34m= Localizar IP')
-	print ('\033[1;37m [03] \033[0;34m= Escanear Portas')
-	print ('\033[1;37m [04] \033[0;34m= Sair\n')
+	print ('\033[1;37m\n [01] \033[0;33m= Obter IP de Site')
+	print ('\033[1;37m [02] \033[0;33m= Localizar IP')
+	print ('\033[1;37m [03] \033[0;33m= Escanear Portas')
+	print ('\033[1;37m [04] \033[0;33m= Sair\n')
 	return int(input('Escolha a opção desejada: '))
 
 def get_ip(site):
 	site = socket.gethostbyname(site)
-	print('\n\033[0;34mEndereço IP: \033[1;34m{} \033[0;34m'.format(site))
+	print('\n\033[0;33mEndereço IP: \033[1;34m{} \033[0;33m'.format(site))
 	return site
 
 def loc_ip(ip):
@@ -43,7 +43,7 @@ def loc_ip(ip):
 	print('[+]\033[1;34mLongitude: \033[0;36m{}\033[0;0m'.format(rcdb.location.longitude))
 	
 	print('[+]\033[1;34mProvedor: \033[0;36m{}\033[0;0m'.format(rasndb.autonomous_system_organization))
-	print('[+]\033[1;34m Alguma Coisa: \033[0;36m{}\033[0;34m'.format(rasndb.autonomous_system_number))
+	print('[+]\033[1;34m Alguma Coisa: \033[0;36m{}\033[0;33m'.format(rasndb.autonomous_system_number))
 
 def scan_door(alvo, porta):
 	N.scan(alvo, porta)
@@ -76,7 +76,7 @@ while True:
 			scan = str(input('Deseja escanear as portas? (S/N) ')).lower()
 			if scan == 's':
 				try:
-					porta = input("\033[0;34mPortas: \033[1;34m")
+					porta = input("\033[0;33mPortas: \033[1;34m")
 					scan_door(dom, porta)
 				except:
 					pass
@@ -85,8 +85,8 @@ while True:
 			loc_ip(ip)
 
 		elif opcao == 3:
-			alvo = str(input("\033[0;34mAlvo: \033[1;34m")).strip().lower()
-			porta = input("\033[0;34mPortas: \033[1;34m")
+			alvo = str(input("\033[0;33mAlvo: \033[1;34m")).strip().lower()
+			porta = input("\033[0;33mPortas: \033[1;34m")
 
 			scan_door(alvo, porta)
 
@@ -97,4 +97,4 @@ while True:
 	except ValueError:
 		print ('Oops Opção invalida\n')
 
-	input('\033[0;34mPrecione ENTER ')
+	input('\033[0;33mPrecione ENTER ')
