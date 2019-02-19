@@ -1,7 +1,8 @@
 # IP-Scanner
 ![Status](https://img.shields.io/badge/status-development-succes.svg)
 ![Platform](https://img.shields.io/badge/platform-linux-lightgrey.svg)
-![Status](https://img.shields.io/badge/linux-stable-succes.svg)
+![Status](https://img.shields.io/badge/ubuntu-stable-succes.svg)
+![Status](https://img.shields.io/badge/kali-unstable-critical.svg)
 
 Um pequeno programa para encontrar IPs ligados a sites, alem de localiza-los e escanear as suas portas. Programa para fins educacionais.
 
